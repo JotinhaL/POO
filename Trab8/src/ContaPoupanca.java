@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class ContaPoupanca extends Conta{
 	private Float rendMes;
 
@@ -16,7 +18,6 @@ public class ContaPoupanca extends Conta{
 		this.rendMes = rendMes;
 	}
 
->>>>>>> 6968b7252b16bd759dd72c836fb8a7470d6d8143
 	public void setRendMes(float rend){
 		this.rendMes = rend;
 	}
