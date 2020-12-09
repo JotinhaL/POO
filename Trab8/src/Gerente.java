@@ -7,12 +7,11 @@ public class Gerente extends Funcionario{
     public static float bonificacao;
 
     public Gerente() {
-        this("",null,"","",null,null,false);
+        this("",null,"","",0f,null,null,false);
     }
 
-    public Gerente(String name, Endereco endereco, String CPF, String CTPS, Date dataIng, Agencia agencia, Boolean cursado) {
-        this.name = name;
-        this.endereco = endereco;
+    public Gerente(String nome, Endereco endereco, String CPF, String CTPS, Float salario, Date dataIng, Agencia agencia, Boolean cursado) {
+        this.nome = nome;
         this.setCPF(CPF);
         this.CTPS = CTPS;
         this.dataIng = dataIng;
@@ -44,12 +43,17 @@ public class Gerente extends Funcionario{
         this.cursado = cursado;
     }
 
-	public static void setBonificacao(float bon){
-		this.bonificacao = bon;
-	}
+    public static void setBonificacao(float bon){
+        bonificacao = bon;
+    }
 
-	public static float getBonificacao(){
-		return this.bonificacao;
-	}
+    public static float getBonificacao(){
+        return bonificacao;
+    }
+
+    public Float calculaSalario(){
+        Date agora = new Date();
+        return getSalBase() + getBonificacao() *(agora.getTime() - getDataIng().getTime());
+    }
 
 }

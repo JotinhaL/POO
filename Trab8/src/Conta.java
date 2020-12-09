@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Conta{
@@ -8,7 +9,6 @@ public class Conta{
     protected Float saldo;
     protected String senha;
     protected Byte ativo;
-    protected String tipo;
     protected Agencia agencia;
 	protected List<Transacao> transacoes;
 	protected Date dtaAbertura;
@@ -24,14 +24,13 @@ public class Conta{
 		this.transacoes = new ArrayList<Transacao>();
     }
 
-    public Conta(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, String tipo, Agencia agencia, Date abr) {
+    public Conta(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, Agencia agencia, Date abr) {
         this.titular = new ArrayList<Cliente>();
         this.titular.add(titular);
         this.numero = numero;
         this.saldo = saldo;
         this.senha = senha;
         this.ativo = ativo;
-        this.tipo = tipo;
         this.agencia = agencia;
 		this.dtaAbertura = abr;
     }
@@ -84,13 +83,6 @@ public class Conta{
         this.ativo = ativo;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public Agencia getAgencia() {
         return agencia;
