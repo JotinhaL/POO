@@ -1,4 +1,3 @@
-import meuPacote.ValidaCPF;
 import java.util.Date;
 
 public class Gerente extends Funcionario{
@@ -8,25 +7,29 @@ public class Gerente extends Funcionario{
     public static float bonificacao;
 
     public Gerente() {
-        this("",null,"","",0.0f,null,null,false);
+        this("",null,"","",null,null,false);
     }
 
+<<<<<<< HEAD
     public Gerente(String nome, Endereco endereco, String CPF, String CTPS, Float salario, Date dataIng, Agencia agencia, Boolean cursado) {
         this.nome = nome;
+=======
+    public Gerente(String name, Endereco endereco, String CPF, String CTPS, Date dataIng, Agencia agencia, Boolean cursado) {
+        this.name = name;
+>>>>>>> fda0c7f26194aec5c8be3697120a631ff9c9b5b6
         this.endereco = endereco;
         this.setCPF(CPF);
         this.CTPS = CTPS;
-        this.salario = salario;
         this.dataIng = dataIng;
         this.agencia = agencia;
         this.cursado = cursado;
     }
 
-    public Date getDate() {
+    public Date getDataIng() {
         return dataIng;
     }
 
-    public void setDate(Date date) {
+    public void setDataIng(Date date) {
         this.dataIng = date;
     }
 
@@ -45,5 +48,13 @@ public class Gerente extends Funcionario{
     public void setCursado(Boolean cursado) {
         this.cursado = cursado;
     }
+
+	public static void setBonificacao(float bon){
+		this.bonificacao = bon;
+	}
+
+	public static float getBonificacao(){
+		return this.bonificacao;
+	}
 
 }
