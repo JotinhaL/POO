@@ -43,12 +43,17 @@ public class Gerente extends Funcionario{
         this.cursado = cursado;
     }
 
-	public static void setBonificacao(float bon){
-		bonificacao = bon;
-	}
+    public static void setBonificacao(float bon){
+        bonificacao = bon;
+    }
 
-	public static float getBonificacao(){
-		return bonificacao;
-	}
+    public static float getBonificacao(){
+        return bonificacao;
+    }
+
+    public Float calculaSalario(){
+        Date agora = new Date();
+        return getSalBase() + getBonificacao() *(agora.getTime() - getDataIng().getTime());
+    }
 
 }
