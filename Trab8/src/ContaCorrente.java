@@ -1,21 +1,19 @@
 import java.util.Date;
 
 public class ContaCorrente extends Conta {
-    private Date dtaAbertura;
     private Float imtCheque;
     private Float virTaxa;
 
     public ContaCorrente() {
-        this(null,0,0f,"",null,"",null,null,0f,0f);
+        this(null,0,0f,"",null,null,null,0f,0f);
     }
 
     public ContaCorrente(Agencia agencia) {
         super(agencia);
     }
 
-    public ContaCorrente(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, String tipo, Agencia agencia, Date dtaAbertura, Float imtCheque, Float virTaxa) {
-        super(titular, numero, saldo, senha, ativo, tipo, agencia);
-        this.dtaAbertura = dtaAbertura;
+    public ContaCorrente(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, Agencia agencia, Date dtaAbertura, Float imtCheque, Float virTaxa) {
+        super(titular, numero, saldo, senha, ativo, agencia,dtaAbertura);
         this.imtCheque = imtCheque;
         this.virTaxa = virTaxa;
     }
