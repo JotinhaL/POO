@@ -1,30 +1,41 @@
 import meuPacote.ValidaCPF;
 
-public class Funcionario {
-    protected String name;
-    protected Endereco endereco;
-    protected String CPF;
+import java.util.Date;
+
+public class Funcionario extends Pessoa {
     protected String CTPS;
-    protected Float salario;
+    protected static Float salBase;
+    protected Date dataAdm;
+    protected String cargo;
+
 
     public Funcionario() {
-        this("",null,"","",0f);
+        this("","",null,"",
+                "","",null,'\0',"",null,"");
     }
 
-    public Funcionario(String name, Endereco endereco, String CPF, String CTPS, Float salario) {
-        this.name = name;
-        this.endereco = endereco;
-        this.setCPF(CPF);
+    public Funcionario(String CPF, String nome, Endereco endereco, String estCivil,
+                       String escolaridade, String telefone, Date dataNasc, char sexo, String CTPS,
+                       Date dataAdm, String Curso) {
+        super(CPF, nome, endereco, estCivil, escolaridade, telefone, dataNasc, sexo);
         this.CTPS = CTPS;
-        this.salario = salario;
+        this.dataAdm = dataAdm;
     }
 
-    public String getName() {
-        return name;
+    public static Float getSalBase() {
+        return salBase;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static void setSalBase(Float salBase) {
+        Funcionario.salBase = salBase;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Endereco getEndereco() {
@@ -40,7 +51,7 @@ public class Funcionario {
     }
 
     public void setCPF(String CPF) {
-        if(ValidaCPF.isCPF(CPF) == true){
+        if (ValidaCPF.isCPF(CPF) == true) {
             this.CPF = CPF;
         }
     }
@@ -52,13 +63,4 @@ public class Funcionario {
     public void setCTPS(String CTPS) {
         this.CTPS = CTPS;
     }
-
-    public Float getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Float salario) {
-        this.salario = salario;
-    }
-
 }

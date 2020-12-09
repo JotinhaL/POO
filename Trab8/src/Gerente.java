@@ -11,8 +11,8 @@ public class Gerente extends Funcionario{
         this("",null,"","",0.0f,null,null,false);
     }
 
-    public Gerente(String name, Endereco endereco, String CPF, String CTPS, Float salario, Date dataIng, Agencia agencia, Boolean cursado) {
-        this.name = name;
+    public Gerente(String nome, Endereco endereco, String CPF, String CTPS, Float salario, Date dataIng, Agencia agencia, Boolean cursado) {
+        this.nome = nome;
         this.endereco = endereco;
         this.setCPF(CPF);
         this.CTPS = CTPS;
