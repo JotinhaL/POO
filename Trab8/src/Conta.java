@@ -3,24 +3,28 @@ import java.util.List;
 
 public class Conta{
 
-    private List<Cliente> titular;
-    private Integer numero;
-    private Float saldo;
-    private String senha;
-    private Byte ativo;
-    private String tipo;
-    private Agencia agencia;
-
+    protected List<Cliente> titular;
+    protected Integer numero;
+    protected Float saldo;
+    protected String senha;
+    protected Byte ativo;
+    protected String tipo;
+    protected Agencia agencia;
+	protected List<Transacao> transacoes;
+	protected Date dtaAbertura;
 
     public Conta() {
         this.titular = new ArrayList<Cliente>();
+		this.transacoes = new ArrayList<Transacao>();
     }
 
     public Conta(Agencia agencia){
         this.agencia = agencia;
+		this.titular = new ArrayList<Cliente>();
+		this.transacoes = new ArrayList<Transacao>();
     }
 
-    public Conta(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, String tipo, Agencia agencia) {
+    public Conta(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, String tipo, Agencia agencia, Date abr) {
         this.titular = new ArrayList<Cliente>();
         this.titular.add(titular);
         this.numero = numero;
@@ -29,6 +33,7 @@ public class Conta{
         this.ativo = ativo;
         this.tipo = tipo;
         this.agencia = agencia;
+		this.dtaAbertura = abr;
     }
 
     public List<Cliente> getTitular() {
@@ -93,5 +98,13 @@ public class Conta{
 
     public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
+    }
+
+	public List<Transacao> getTranscoes() {
+        return this.transacoes;
+    }
+
+    public void setTransacoes(List<Transacao> transacoes) {
+        this.transacoes = transacoes;
     }
 }
