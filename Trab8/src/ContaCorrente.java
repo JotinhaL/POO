@@ -5,7 +5,7 @@ public class ContaCorrente extends Conta {
     private Float virTaxa;
 
     public ContaCorrente() {
-        this(null,0,0f,"",null,null,null,0f,0f);
+        this(null,0,0f,"",'\0',null,null,0f,0f);
     }
 
     public ContaCorrente(Agencia agencia) {
@@ -13,7 +13,7 @@ public class ContaCorrente extends Conta {
     }
 
     public ContaCorrente(Cliente titular, Integer numero, Float saldo,
-                         String senha, Byte ativo, Agencia agencia,
+                         String senha, char ativo, Agencia agencia,
                          Date dtaAbertura, Float imtCheque, Float virTaxa) {
         super(titular, numero, saldo, senha, ativo, agencia,dtaAbertura);
         this.imtCheque = imtCheque;

@@ -24,13 +24,13 @@ public class Conta{
 		this.transacoes = new ArrayList<Transacao>();
     }
 
-    public Conta(Cliente titular, Integer numero, Float saldo, String senha, Byte ativo, Agencia agencia, Date abr) {
+    public Conta(Cliente titular, Integer numero, Float saldo, String senha, char ativo, Agencia agencia, Date abr) {
         this.titular = new ArrayList<Cliente>();
         this.titular.add(titular);
         this.numero = numero;
-        this.saldo = saldo;
+        this.depositar(saldo);
         this.senha = senha;
-        this.ativo = ativo;
+        this.setAtivo(ativo);
         this.agencia = agencia;
 		this.dtaAbertura = abr;
     }
@@ -79,8 +79,10 @@ public class Conta{
         return ativo;
     }
 
-    public void setAtivo(Byte ativo) {
-        this.ativo = ativo;
+    public void setAtivo(char ativo) {
+        if(ativo=='A'||ativo=='a')this.ativo = 1;
+        else if(ativo=='I'||ativo=='i')this.ativo = 2;
+        else this.ativo = 3;
     }
 
 
@@ -98,5 +100,51 @@ public class Conta{
 
     public void setTransacoes(List<Transacao> transacoes) {
         this.transacoes = transacoes;
+    }
+    
+    public void sacar(float saque){
+    	if(saque<=this.saldo){
+    		Transacao t = new Transacao(new Date(),this.agencia,saque,"Saque");
+    		this.saldo -= saque;
+    		this.transacoes.add(t);
+    	}
+    }
+    
+    public void depositar(float deposito){
+    	Transacao t = new Transacao(new Date(),this.agencia,saque,"deposito");
+    	this.saldo += deposito;
+    	this.transacoes.add(t);
+    }
+    
+    public void transferencia(float val,Conta cc){
+    	if(val<=this.saldo){
+    		Transacao t = new Transacao(new Date(),this.agencia,val,"transferencia");
+    		this.saldo -= val;
+    		this.transacoes.add(t);
+    		cc.depositar(val);
+    	}
+    }
+    
+    public void sacar(float saque,Agencia ag){
+    	if(saque<=this.saldo){
+    		Transacao t = new Transacao(new Date(),ag,saque,"Saque");
+    		this.saldo -= saque;
+    		this.transacoes.add(t);
+    	}
+    }
+    
+    public void depositar(float deposito,Agencia ag){
+    	Transacao t = new Transacao(new Date(),ag,saque,"deposito");
+    	this.saldo += deposito;
+    	this.transacoes.add(t);
+    }
+    
+    public void transferencia(float val,Conta cc,Agencia ag){
+    	if(val<=this.saldo){
+    		Transacao t = new Transacao(new Date(),ag,val,"transferencia");
+    		this.saldo -= val;
+    		this.transacoes.add(t);
+    		cc.depositar(val,ag);
+    	}
     }
 }

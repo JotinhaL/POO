@@ -4,7 +4,7 @@ public class ContaPoupanca extends Conta{
 	private Float rendMes;
 
 	public ContaPoupanca() {
-		this(null,0,0f,"",null,null,null,0f);
+		this(null,0,0f,"",'\0',null,null,0f);
 	}
 
 	public ContaPoupanca(Agencia agencia) {
@@ -12,7 +12,7 @@ public class ContaPoupanca extends Conta{
 	}
 
 	public ContaPoupanca(Cliente titular, Integer numero, Float saldo,
-						 String senha, Byte ativo, Agencia agencia,
+						 String senha, char ativo, Agencia agencia,
 						 Date abr, Float rendMes) {
 		super(titular, numero, saldo, senha, ativo, agencia, abr);
 		this.rendMes = rendMes;

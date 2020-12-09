@@ -1,5 +1,5 @@
-import javax.lang.model.type.NullType;
 import java.util.Date;
+import meuPacote.ValidaCPF;
 
 public class Pessoa {
     protected String CPF;
@@ -16,7 +16,7 @@ public class Pessoa {
     }
 
     public Pessoa(String CPF, String nome, Endereco endereco, String estCivil, String escolaridade, String telefone, Date dataNasc, char sexo) {
-        this.CPF = CPF;
+        this.setCPF(CPF);
         this.nome = nome;
         this.endereco = endereco;
         this.estCivil = estCivil;
@@ -31,7 +31,7 @@ public class Pessoa {
     }
 
     public void setCPF(String CPF) {
-        this.CPF = CPF;
+        if(ValidaCPF.isCPF(CPF))this.CPF = CPF;
     }
 
     public String getNome() {
