@@ -24,12 +24,12 @@ public class Teste {
 
         Conta[] ct = new Conta[3];
 
-        ct[0] = new ContaSalario(cl, 555, 44.9f, "SEnha", (byte) 1, ag, dt, 50f);
-        ct[1] = new ContaCorrente(cl2, 123, 999f, "123sdad", (byte) 1, ag, dt, 300f, 30f);
-        ct[2] = new ContaPoupanca(cl, 333, 703f, "AsDf", (byte) 2, ag, dt, 0.33f);
+        ct[0] = new ContaSalario(cl, 555, 44.9f, "SEnha", 'A', ag, dt, 50f);
+        ct[1] = new ContaCorrente(cl2, 123, 999f, "123sdad", 'A', ag, dt, 300f, 30f);
+        ct[2] = new ContaPoupanca(cl, 333, 703f, "AsDf", 'A', ag, dt, 0.33f);
 
         for (Conta cc : ct) {
-            System.out.println(cc.getSaldo());
+            cc.mostraDados();
         }
     }
 }

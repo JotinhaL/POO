@@ -52,4 +52,9 @@ public class ContaCorrente extends Conta {
         }
         else return 40.0f;
     }
+    
+    public void mostraDados(){
+    	System.out.println("Conta N°"+this.getNumero()+" Saldo: "+this.getSaldo()+" Taxa: "+this.virTaxa);
+    }
+    
 }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public abstract class Conta{
+public abstract class Conta implements Imprimivel{
 
     protected List<Cliente> titular;
     protected Integer numero;
@@ -16,18 +16,22 @@ public abstract class Conta{
     public Conta() {
         this.titular = new ArrayList<Cliente>();
 		this.transacoes = new ArrayList<Transacao>();
+		this.saldo = 0.0f;
     }
 
     public Conta(Agencia agencia){
         this.agencia = agencia;
 		this.titular = new ArrayList<Cliente>();
 		this.transacoes = new ArrayList<Transacao>();
+		this.saldo = 0.0f;
     }
 
     public Conta(Cliente titular, Integer numero, Float saldo, String senha, char ativo, Agencia agencia, Date abr) {
         this.titular = new ArrayList<Cliente>();
         this.titular.add(titular);
+        this.transacoes = new ArrayList<Transacao>();
         this.numero = numero;
+        this.saldo=0f;
         this.depositar(saldo);
         this.senha = senha;
         this.setAtivo(ativo);
@@ -111,7 +115,7 @@ public abstract class Conta{
     }
     
     public void depositar(float deposito){
-    	Transacao t = new Transacao(new Date(),this.agencia,saque,"deposito");
+    	Transacao t = new Transacao(new Date(),this.agencia,deposito,"deposito");
     	this.saldo += deposito;
     	this.transacoes.add(t);
     }
@@ -134,7 +138,7 @@ public abstract class Conta{
     }
     
     public void depositar(float deposito,Agencia ag){
-    	Transacao t = new Transacao(new Date(),ag,saque,"deposito");
+    	Transacao t = new Transacao(new Date(),ag,deposito,"deposito");
     	this.saldo += deposito;
     	this.transacoes.add(t);
     }

@@ -49,4 +49,13 @@ public class ContaSalario extends Conta{
     		cc.depositar(val,ag);
     	}
     }
+    
+    public float calculaTarifa(){
+		return this.saldo*0.1f;
+	}
+    
+    public void mostraDados(){
+    	System.out.println("Conta N°"+this.getNumero()+" Saldo: "+this.getSaldo()
+    						+" Saldo Minimo: "+this.saldoMin);
+    }
 }

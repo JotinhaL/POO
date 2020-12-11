@@ -4,6 +4,7 @@ public class ContaPoupanca extends Conta{
 
 	private Float rendMes;
 	public static float taxa;
+	public static float tarifa;
 
 	public ContaPoupanca() {
 		this(null,0,0f,"",'\0',null,null,0f);
@@ -30,5 +31,10 @@ public class ContaPoupanca extends Conta{
 
 	public float calculaTarifa(){
 		return tarifa;
+	}
+	
+	public void mostraDados(){
+		System.out.println("Conta N°"+this.getNumero()+" Saldo: "+this.getSaldo()
+							+" Rendimento por mes: "+this.rendMes);
 	}
 }
