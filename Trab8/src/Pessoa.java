@@ -1,7 +1,7 @@
 import java.util.Date;
 import meuPacote.ValidaCPF;
 
-public class Pessoa {
+public abstract class Pessoa {
     protected String CPF;
     protected String nome;
     protected Endereco endereco;
@@ -90,5 +90,4 @@ public class Pessoa {
         this.sexo = sexo;
     }
 }
-
 
