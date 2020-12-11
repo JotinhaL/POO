@@ -1,7 +1,9 @@
 import java.util.Date;
 
 public class ContaPoupanca extends Conta{
+
 	private Float rendMes;
+	public static float taxa;
 
 	public ContaPoupanca() {
 		this(null,0,0f,"",'\0',null,null,0f);
@@ -25,4 +27,8 @@ public class ContaPoupanca extends Conta{
 	public float getRendMes(){
 		return this.rendMes;
 	} 
+
+	public float calculaTarifa(){
+		return tarifa;
+	}
 }
