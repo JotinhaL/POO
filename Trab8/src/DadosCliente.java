@@ -1,10 +1,10 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class DadosClientes{
+public class DadosCliente{
 	private List<Cliente> lClientes;
 
-	DadosClientes(){
+	DadosCliente(){
 		lClientes = new ArrayList<Cliente>();
 	}
 	
