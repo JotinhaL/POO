@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Conta{
+public abstract class Conta{
 
     protected List<Cliente> titular;
     protected Integer numero;
@@ -147,4 +147,6 @@ public class Conta{
     		cc.depositar(val,ag);
     	}
     }
+    
+    public abstract float calculaTarifa();
 }

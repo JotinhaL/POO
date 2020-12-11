@@ -3,6 +3,8 @@ import java.util.Date;
 public class ContaCorrente extends Conta {
     private Float imtCheque;
     private Float virTaxa;
+    private String categoria;
+
 
     public ContaCorrente() {
         this(null,0,0f,"",'\0',null,null,0f,0f);
@@ -42,5 +44,12 @@ public class ContaCorrente extends Conta {
 
     public void setVirTaxa(Float virTaxa) {
         this.virTaxa = virTaxa;
+    }
+
+    public float calculaTarifa(){
+        if(this.categoria.equals("standart")){
+            return 20.0f;
+        }
+        else return 40.0f;
     }
 }
