@@ -63,4 +63,26 @@ public class Funcionario extends Pessoa {
     public void setCTPS(String CTPS) {
         this.CTPS = CTPS;
     }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "CTPS='" + CTPS + '\'' +
+                ", dataAdm=" + dataAdm +
+                ", cargo='" + cargo + '\'' +
+                ", CPF='" + CPF + '\'' +
+                ", nome='" + nome + '\'' +
+                ", endereco=" + endereco +
+                ", estCivil='" + estCivil + '\'' +
+                ", escolaridade='" + escolaridade + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", dataNasc=" + dataNasc +
+                ", sexo=" + sexo +
+                '}';
+    }
+
+    @Override
+    public void mostraDados() {
+        System.out.println(toString());
+    }
 }

@@ -25,5 +25,25 @@ public class Cliente extends Pessoa{
 	public void setAgencia(Agencia agencia) {
 		this.agencia = agencia;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente{" +
+				"agencia=" + agencia +
+				", CPF='" + CPF + '\'' +
+				", nome='" + nome + '\'' +
+				", endereco=" + endereco +
+				", estCivil='" + estCivil + '\'' +
+				", escolaridade='" + escolaridade + '\'' +
+				", telefone='" + telefone + '\'' +
+				", dataNasc=" + dataNasc +
+				", sexo=" + sexo +
+				'}';
+	}
+
+	@Override
+	public void mostraDados() {
+		System.out.println(toString());
+	}
 }
 

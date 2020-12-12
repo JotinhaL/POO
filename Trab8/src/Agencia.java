@@ -1,4 +1,4 @@
-public class Agencia{
+public class Agencia implements Imprimivel{
 	private String nome;
 	private int numero;
 	private Endereco endereco;
@@ -45,5 +45,20 @@ public class Agencia{
 
 	public void setGerente(Gerente gerente) {
 		this.gerente = gerente;
+	}
+
+	@Override
+	public String toString() {
+		return "Agencia{" +
+				"nome='" + nome + '\'' +
+				", numero=" + numero +
+				", endereco=" + endereco +
+				", gerente=" + gerente +
+				'}';
+	}
+
+	@Override
+	public void mostraDados() {
+		System.out.println(toString());
 	}
 }

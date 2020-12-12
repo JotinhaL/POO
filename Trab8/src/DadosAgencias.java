@@ -2,14 +2,14 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class DadosAgencias{
-	private List lAgencias:
+	private List<Agencia> lAgencias;
 
 	 DadosAgencias(){
-		lAgencias = new ArrayList():
+		lAgencias = new ArrayList();
 	}
 	
-	public.void cadastrar(Agencia a){
-		this.lAgencias.add(a):
+	public void cadastrar(Agencia a){
+		this.lAgencias.add(a);
 	}
 	
 	public void listar(){
@@ -20,14 +20,14 @@ public class DadosAgencias{
 	public Agencia buscar(int nro){
 		Agencia aa = null;
 		for(Agencia a: this.lAgencias){
-			if(a.getNro() == nro){
+			if(a.getNumero() == nro){
 				aa = a;
 				break;
 			}
 		}
 		 return aa;
 }
-	public boolean  excluir(int nro){
+	public boolean excluir(int nro){
 		Agencia a = buscar(nro);
 		if(a!=null){
 			this.lAgencias.remove(a);
@@ -35,4 +35,6 @@ public class DadosAgencias{
 		}
 		else return false;
 	}
+
+
 }

@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -7,7 +11,7 @@ public class DadosCliente{
 	DadosCliente(){
 		lClientes = new ArrayList<Cliente>();
 	}
-	
+
 	public void cadastrar(Cliente c){
 		this.lClientes.add(c);
 	}
@@ -17,7 +21,7 @@ public class DadosCliente{
 			c.mostraDados();
 		}
 	}
-	
+
 	public Cliente buscar(String CPF){
 		Cliente cc= null;
 		for(Cliente c: this.lClientes){
@@ -36,5 +40,19 @@ public class DadosCliente{
 			return true;
 		}
 		else return false;
+	}
+
+	public void salvar(String arq){
+		try{
+			FileOutputStream out = new FileOutputStream(arq);
+			ObjectOutputStream eObj = new ObjectOutputStream(out);
+			eObj.writeObject(this.lClientes);
+		}
+		catch (FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}
+		catch (IOException e){
+			System.out.println(e.getMessage());
+		}
 	}
 }

@@ -1,7 +1,7 @@
 import java.util.Date;
 import meuPacote.ValidaCPF;
 
-public abstract class Pessoa {
+public abstract class Pessoa implements Imprimivel {
     protected String CPF;
     protected String nome;
     protected Endereco endereco;
