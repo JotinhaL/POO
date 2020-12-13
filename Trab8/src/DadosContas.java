@@ -2,26 +2,26 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class DadosContas{
-    private List<Cliente> lContas;
+    private List<Conta> lContas;
 
     DadosContas(){
-        lContas = new ArrayList<Cliente>();
+        lContas = new ArrayList<Conta>();
     }
 
-    public void cadastrar(Cliente c){
+    public void cadastrar(Conta c){
         this.lContas.add(c);
     }
 
     public void listar(){
-        for(Cliente c: this.lContas){
+        for(Conta c: this.lContas){
             c.mostraDados();
         }
     }
 
-    public Cliente buscar(String CPF){
-        Cliente cc= null;
-        for(Cliente c: this.lContas){
-            if(c.getCPF().equals(CPF)){
+    public Conta buscar(int nmr){
+        Conta cc= null;
+        for(Conta c: this.lContas){
+            if(c.getNumero()==nmr){
                 cc = c;
                 break;
             }
@@ -29,8 +29,8 @@ public class DadosContas{
         return cc;
     }
 
-    public boolean excluir(String CPF){
-        Cliente c = buscar(CPF);
+    public boolean excluir(int nmr){
+        Conta c = buscar(nmr);
         if(c!=null){
             this.lContas.remove(c);
             return true;
