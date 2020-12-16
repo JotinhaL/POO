@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
-public class DadosCliente{
+public class DadosCliente implements salvador{
 	private List<Cliente> lClientes;
 
 	DadosCliente(){

@@ -1,7 +1,11 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
-public class DadosContas{
+public class DadosContas implements salvador{
     private List<Conta> lContas;
 
     DadosContas(){
@@ -37,4 +41,18 @@ public class DadosContas{
         }
         else return false;
     }
+    
+    public void salvar(String arq){
+		try{
+			FileOutputStream out = new FileOutputStream(arq);
+			ObjectOutputStream eObj = new ObjectOutputStream(out);
+			eObj.writeObject(this.lContas);
+		}
+		catch (FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}
+		catch (IOException e){
+			System.out.println(e.getMessage());
+		}
+	}
 }
