@@ -7,7 +7,7 @@ public class ContaCorrente extends Conta {
 
 
     public ContaCorrente() {
-        this(null,0,0f,"",'\0',null,null,0f,0f);
+        this(null,0,0f,"",'\0',null,new Date(),0f,0f);
     }
 
     public ContaCorrente(Agencia agencia) {

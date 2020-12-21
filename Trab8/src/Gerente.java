@@ -7,10 +7,10 @@ public class Gerente extends Funcionario{
     public static float bonificacao;
 
     public Gerente() {
-        this("",null,"","",0f,null,null,false);
+        this("",null,"","",null,null,false);
     }
 
-    public Gerente(String nome, Endereco endereco, String CPF, String CTPS, Float salario, Date dataIng, Agencia agencia, Boolean cursado) {
+    public Gerente(String nome, Endereco endereco, String CPF, String CTPS, Date dataIng, Agencia agencia, Boolean cursado) {
         this.nome = nome;
         this.setCPF(CPF);
         this.CTPS = CTPS;
@@ -54,6 +54,11 @@ public class Gerente extends Funcionario{
     public Float calculaSalario(){
         Date agora = new Date();
         return getSalBase() + getBonificacao() *(agora.getTime() - getDataIng().getTime());
+    }
+
+    @Override
+    public String toString() {
+        return "Gerente{" + "dataIng=" + dataIng + ", agencia=" + agencia + ", cursado=" + cursado + '}';
     }
 
 }

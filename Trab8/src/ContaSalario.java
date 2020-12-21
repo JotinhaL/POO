@@ -4,7 +4,7 @@ public class ContaSalario extends Conta{
     private Float saldoMin;
 
     public ContaSalario() {
-        this(null,0,0f,"",'\0',null,null,0f);
+        this(null,0,0f,"",'\0',null,new Date(),0f);
     }
 
     public ContaSalario(Agencia agencia) {

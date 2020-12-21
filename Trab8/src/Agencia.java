@@ -53,12 +53,12 @@ public class Agencia implements Imprimivel{
 				"nome='" + nome + '\'' +
 				", numero=" + numero +
 				", endereco=" + endereco +
-				", gerente=" + gerente +
+				", gerente=" + gerente.getCPF() +
 				'}';
 	}
 
 	@Override
 	public void mostraDados() {
-		System.out.println(toString());
+		System.out.println(this.toString());
 	}
 }

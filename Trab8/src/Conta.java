@@ -15,15 +15,17 @@ public abstract class Conta implements Imprimivel{
 
     public Conta() {
         this.titular = new ArrayList<Cliente>();
-		this.transacoes = new ArrayList<Transacao>();
-		this.saldo = 0.0f;
+	this.transacoes = new ArrayList<Transacao>();
+        this.saldo = 0.0f;
+        this.dtaAbertura = new Date();       
     }
 
     public Conta(Agencia agencia){
         this.agencia = agencia;
-		this.titular = new ArrayList<Cliente>();
-		this.transacoes = new ArrayList<Transacao>();
-		this.saldo = 0.0f;
+	this.titular = new ArrayList<Cliente>();
+	this.transacoes = new ArrayList<Transacao>();
+	this.saldo = 0.0f;
+        this.dtaAbertura = new Date();
     }
 
     public Conta(Cliente titular, Integer numero, Float saldo, String senha, char ativo, Agencia agencia, Date abr) {
@@ -121,12 +123,14 @@ public abstract class Conta implements Imprimivel{
     }
     
     public void transferencia(float val,Conta cc){
-    	if(val<=this.saldo){
-    		Transacao t = new Transacao(new Date(),this.agencia,val,"transferencia");
-    		this.saldo -= val;
-    		this.transacoes.add(t);
-    		cc.depositar(val);
-    	}
+    	if(cc.getAgencia().getNumero()==this.getAgencia().getNumero()){
+            if(val<=this.saldo){
+                    Transacao t = new Transacao(new Date(),this.agencia,val,"transferencia");
+                    this.saldo -= val;
+                    this.transacoes.add(t);
+                    cc.depositar(val);
+            }
+        }
     }
     
     public void sacar(float saque,Agencia ag){
@@ -153,4 +157,12 @@ public abstract class Conta implements Imprimivel{
     }
     
     public abstract float calculaTarifa();
+
+    @Override
+    public String toString() {
+        return "Conta{" + "titular=" + titular + ", numero=" + numero + ", saldo=" + saldo + ", senha=" + senha + ", ativo=" + ativo + ", agencia=" + agencia + ", transacoes=" + transacoes + ", dtaAbertura=" + dtaAbertura + '}';
+    }
+    
+    
+    
 }

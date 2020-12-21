@@ -1,8 +1,5 @@
-import java.util.List;
 import java.util.Scanner;
 import java.util.Date;
-// importanto a classe "ValidaCPF" do pacote "meuPacote"
-import meuPacote.ValidaCPF;
 
 public class Teste {
 

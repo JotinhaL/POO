@@ -1,11 +1,7 @@
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
-public class DadosCliente implements salvador{
+public class DadosCliente{
 	private List<Cliente> lClientes;
 
 	DadosCliente(){
@@ -42,17 +38,9 @@ public class DadosCliente implements salvador{
 		else return false;
 	}
 
-	public void salvar(String arq){
-		try{
-			FileOutputStream out = new FileOutputStream(arq);
-			ObjectOutputStream eObj = new ObjectOutputStream(out);
-			eObj.writeObject(this.lClientes);
-		}
-		catch (FileNotFoundException e){
-			System.out.println(e.getMessage());
-		}
-		catch (IOException e){
-			System.out.println(e.getMessage());
-		}
-	}
+    public List<Cliente> getlClientes() {
+        return lClientes;
+    }
+        
+        
 }

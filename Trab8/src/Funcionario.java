@@ -8,6 +8,22 @@ public class Funcionario extends Pessoa {
     protected Date dataAdm;
     protected String cargo;
 
+    public Date getDataAdm() {
+        return dataAdm;
+    }
+
+    public void setDataAdm(Date dataAdm) {
+        this.dataAdm = dataAdm;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
 
     public Funcionario() {
         this("","",null,"",
@@ -81,6 +97,10 @@ public class Funcionario extends Pessoa {
                 '}';
     }
 
+    public float calcSalario(){
+        return salBase;
+    }
+    
     @Override
     public void mostraDados() {
         System.out.println(toString());

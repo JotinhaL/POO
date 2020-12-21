@@ -7,7 +7,7 @@ public class ContaPoupanca extends Conta{
 	public static float tarifa;
 
 	public ContaPoupanca() {
-		this(null,0,0f,"",'\0',null,null,0f);
+		this(null,0,0f,"",'\0',null,new Date(),0f);
 	}
 
 	public ContaPoupanca(Agencia agencia) {
